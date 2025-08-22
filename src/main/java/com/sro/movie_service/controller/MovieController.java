@@ -24,7 +24,10 @@ public class MovieController {
         MovieDTO createdMovie = movieService.addMovie(movieDTO);
         return new ResponseEntity<>(createdMovie, HttpStatus.CREATED);
     }
-
+    @GetMapping("/ping")
+    public String ping() {
+        return "pong";
+    }
     @GetMapping
     public ResponseEntity<List<MovieDTO>> getAllMovies() {
         List<MovieDTO> movies = movieService.getAllMovies();
